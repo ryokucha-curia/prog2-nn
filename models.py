@@ -55,6 +55,20 @@ def train(model,dataloader,loss_fn,optimizer):
     #最後のバッチのロス
     return loss.item()
 
+def test(model, dataloader, loss_fn):
+    loss_total=0.0
+
+    model.eval()
+    for image_batch, label_batch in dataloader:
+        with torch.no_grad():
+            logits_batch=model(image_batch)
+
+        loss=loss_fn(logits_batch, label_batch)
+        loss_total += loss.item()
+
+    #バッチ数で割って、平均値を返す
+    return loss_total / len(dataloader)
+
     
 
 
