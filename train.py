@@ -73,7 +73,7 @@ acc_test_history=[]
 
 #学習
 for k in range(n_epochs):
-    print(f'epoch{k+1}/{n_epochs}',end=': ',flush=True)
+    print(f'epoch{k+1:2}/{n_epochs}',end=': ',flush=True)
 
     #　１　epochの学習
     time_start=time.time()
