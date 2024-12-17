@@ -9,9 +9,9 @@ ds_train=datasets.FashionMNIST(
     download=True,
 )
 
-print(f'numbers of datasets: {len(ds_train)}')
+print(f'dataset size: {len(ds_train)}')
 #FashionMNISTは配列のようなものでできており一つ一つの要素が画像（image）とラベル（target）のタプルで構成されている
-image,target=ds_train[0]
+image,target=ds_train[1]
 print(type(image),target)
 plt.imshow(image,cmap="gray_r")
 plt.title(target)
