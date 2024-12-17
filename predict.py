@@ -32,16 +32,15 @@ with torch.no_grad():
     logits=model(image)
 
 print(logits)
-unti=model.forward(image)
-print(unti)
+
 #ロジットをグラフにする
 plt.bar(range(len(logits[0])),logits[0])
 plt.show()
 # #クラス確率をグラフにする
-# probs=logits.softmax(dim=1)
-# plt.bar(range(len(probs[0])),probs[0])
-# plt.ylim(0,1)
-# plt.show()
+probs=logits.softmax(dim=1)
+plt.bar(range(len(probs[0])),probs[0])
+plt.ylim(0,1)
+plt.show()
 
 plt.figure(figsize=(8,4))
 plt.subplot(1,2,1)
@@ -50,8 +49,7 @@ plt.title(f'class:{target}({datasets.FashionMNIST.classes[target]})')
 
  #クラス確率をグラフにする
 plt.subplot(1,2,2)
-probs=logits.softmax(dim=1)
 plt.bar(range(len(probs[0])),probs[0])
-plt.title(f'predicted class:{logits.argmax()}')
 plt.ylim(0,1)
+
 plt.show()

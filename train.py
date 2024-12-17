@@ -52,6 +52,10 @@ print(f'test accurasy:{acc_test*100:.3f}%')
 #モデルをインスタンス化する
 model=models.MyModel()
 
+#精度を学習
+acc_test=models.test_accuracy(model,dataloader_test)
+print(f'test accuracy: {acc_test*100:.2f}%')
+
 #損失関数（誤差関数・ロス関数）の選択
 loss_fn=torch.nn.CrossEntropyLoss()
 
@@ -59,12 +63,8 @@ loss_fn=torch.nn.CrossEntropyLoss()
 learning_rate=1e-3#学習率
 optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate )
 
-#精度を学習
-acc_test=models.test_accuracy(model,dataloader_test)
-print(f'test accuracy: {acc_test*100:.2f}%')
-
 #学習回数
-n_epochs=20
+n_epochs=5
 
 loss_train_history=[]
 loss_test_history=[]
