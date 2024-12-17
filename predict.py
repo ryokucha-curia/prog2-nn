@@ -6,7 +6,6 @@ import torchvision.transforms.v2 as transforms
 
 import models
 
-
 #モデルをインスタンス化する
 model=models.MyModel()
 print(model)
@@ -49,7 +48,9 @@ plt.title(f'class:{target}({datasets.FashionMNIST.classes[target]})')
 
  #クラス確率をグラフにする
 plt.subplot(1,2,2)
+\
 plt.bar(range(len(probs[0])),probs[0])
+plt.title(f'predicted class:{logits.argmax()}')
 plt.ylim(0,1)
 
 plt.show()
