@@ -64,7 +64,7 @@ acc_test=models.test_accuracy(model,dataloader_test)
 print(f'test accuracy: {acc_test*100:.2f}%')
 
 #学習回数
-n_epochs=5
+n_epochs=20
 
 loss_train_history=[]
 loss_test_history=[]
@@ -88,7 +88,7 @@ for k in range(n_epochs):
     loss_test_history.append(loss_test)
     print(f'test loss: {loss_test:.3f}({time_end-time_start:.1f}s)', end=', ')
 
-    if(k+1)%5==1:
+    if(k+1)%5==0:
         time_start=time.time()
         acc_train=models.test_accuracy(model,dataloader_train)
         time_end=time.time()
