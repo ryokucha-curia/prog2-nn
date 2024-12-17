@@ -8,6 +8,7 @@ import torchvision.transforms.v2 as transforms
 
 import models
 
+device='cuda' if torch.cuda.is_available() else 'cpu'
 #データセットの前処理を定義
 ds_transform=transforms.Compose([
     transforms.ToImage(),
